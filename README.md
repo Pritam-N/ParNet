@@ -14,5 +14,5 @@ Official Repository https://github.com/imankgoyal/NonDeepNetworks
 
 
 <div align="justify">
-  <i><b>If there are any issues in the code, please feel free to update.</b>
+  <i><b>If there is any issue in the code, please feel free to update.</b>
 </div><br>
