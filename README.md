@@ -10,4 +10,9 @@ Official Repository https://github.com/imankgoyal/NonDeepNetworks
 <i><b>Overview</b>: Depth is the hallmark of DNNs. But more depth means more sequential computation and higher latency. This begs the question -- is it possible to build high-performing ``non-deep" neural networks? We show that it is. We show, for the first time, that a network with a depth of just 12 can achieve top-1 accuracy over 80% on ImageNet, 96% on CIFAR10, and 81% on CIFAR100. We also show that a network with a low-depth (12) backbone can achieve an AP of 48% on MS-COCO.</i>
 </div><br>
 
-<img src="img/ParNet.PNG" align="left" width="100%"/>
+<img src="img/ParNet.PNG" align="center" width="100%"/>
+
+
+<div align="justify">
+  <i><b>If there are any issues in the code, please feel free to update.</b>
+</div><br>
