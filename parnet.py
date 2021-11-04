@@ -33,6 +33,9 @@ def conv_bn(in_channels, out_channels, conv, *args, **kwargs):
         'bn': nn.BatchNorm2d(out_channels)
     }))
 
+def conv(in_channels, out_channels, conv, *args, **kwargs):
+    return conv(in_channels, out_channels, *args, **kwargs)
+
 
 class GlobalAveragePool2D():
     def __init__(self, keepdim=True) -> None:
@@ -75,7 +78,7 @@ class Downsample(nn.Module):
         self.avgpool = nn.AvgPool2d(kernel_size=(2, 2))
         self.conv1 = conv_bn(self.in_channels, self.out_channels, conv_sampler(kernel_size=1))
         self.conv2 = conv_bn(self.in_channels, self.out_channels, conv_sampler(kernel_size=3, stride=2))
-        self.conv3 = conv_bn(self.in_channels, self.out_channels, conv_sampler(kernel_size=1))
+        self.conv3 = conv(self.in_channels, self.out_channels, conv_sampler(kernel_size=1))
         self.globalAvgPool = GlobalAveragePool2D()
         self.activation = activation_func('silu')
         self.sigmoid = nn.Sigmoid()
@@ -106,7 +109,7 @@ class Fusion(nn.Module):
         self.conv1 = conv_bn(self.network_in_channels, self.out_channels, conv_sampler(kernel_size=1, groups=2))
         self.conv2 = conv_bn(self.network_in_channels, self.out_channels,
                              conv_sampler(kernel_size=3, stride=2, groups=2))
-        self.conv3 = conv_bn(self.network_in_channels, self.out_channels, conv_sampler(kernel_size=1, groups=2))
+        self.conv3 = conv(self.network_in_channels, self.out_channels, conv_sampler(kernel_size=1, groups=2))
         self.globalAvgPool = GlobalAveragePool2D()
         self.activation = activation_func('silu')
         self.sigmoid = nn.Sigmoid()
